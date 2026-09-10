@@ -1,10 +1,208 @@
 (() => {
   const body = document.body;
   const reducedQuery = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+
+  const brochureCss = document.createElement('link');
+  brochureCss.rel = 'stylesheet';
+  brochureCss.href = 'assets/brochure.css';
+  document.head.appendChild(brochureCss);
+
   const motionToggle = document.querySelector('[data-motion-toggle]');
   const sticky = document.querySelector('[data-sticky-application]');
   const heroApplication = document.querySelector('#entrance [data-application-link]');
   const blockers = [...document.querySelectorAll('#information [data-application-link], #visit [data-application-link]')];
+
+  const imageBase = 'assets/images/';
+  const images = {
+    hero: `${imageBase}hero-walk.webp`,
+    explore: `${imageBase}explore-walk.webp`,
+    students: `${imageBase}students-bench.webp`,
+    learning: `${imageBase}learning-inquiry.webp`,
+    energy: `${imageBase}energy-sports.webp`,
+    culture: `${imageBase}culture-dance.webp`,
+    club: `${imageBase}club-huddle.webp`,
+    closing: `${imageBase}closing-students.webp`
+  };
+
+  const addHeroPhoto = () => {
+    const stage = document.querySelector('.stage-world');
+    if (!stage || stage.querySelector('.hero-brochure-photo')) return;
+    const img = new Image();
+    img.className = 'hero-brochure-photo';
+    img.src = images.hero;
+    img.alt = '';
+    img.setAttribute('aria-hidden','true');
+    img.addEventListener('load', () => {
+      stage.classList.add('has-brochure-photo');
+      stage.prepend(img);
+      const credit = document.createElement('span');
+      credit.className = 'hero-photo-credit';
+      credit.textContent = 'SCHOOL GUIDE 2027 · 校舎へ向かう生徒たち';
+      stage.appendChild(credit);
+    }, {once:true});
+  };
+
+  const replacePhotoSlot = (selector, src, alt, caption) => {
+    const slot = document.querySelector(selector);
+    if (!slot) return null;
+    const img = new Image();
+    img.src = src;
+    img.alt = alt;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.addEventListener('load', () => {
+      slot.classList.remove('visual-placeholder');
+      slot.classList.add('brochure-frame');
+      slot.replaceChildren(img);
+      if (caption) {
+        const cap = document.createElement('span');
+        cap.className = 'brochure-caption';
+        cap.textContent = caption;
+        slot.appendChild(cap);
+      }
+    }, {once:true});
+    return slot;
+  };
+
+  addHeroPhoto();
+
+  replacePhotoSlot(
+    '[data-photo-slot="explore-main"]',
+    images.explore,
+    '校内を歩く目黒高校の生徒たち',
+    '学校案内パンフレット2027・高校生の1日より'
+  );
+
+  replacePhotoSlot(
+    '[data-photo-slot="students-main"]',
+    images.students,
+    '屋外で会話する目黒高校の生徒たち',
+    '学校案内パンフレット2027・高校生の1日より'
+  );
+
+  const energy = replacePhotoSlot(
+    '[data-photo-slot="experience"]',
+    images.energy,
+    '体育祭でリレーを走る生徒たち',
+    'パンフレット掲載の体育祭の一場面。学校説明会当日の写真ではありません。'
+  );
+  if (energy) {
+    const restoreEnergyTitle = () => {
+      if (energy.querySelector('.energy-title')) return;
+      const title = document.createElement('div');
+      title.className = 'energy-title';
+      title.innerHTML = '<small>05 / EXPERIENCE</small><h2 id="experience-title">この活気を、<br>会場で。</h2>';
+      energy.appendChild(title);
+    };
+    const observer = new MutationObserver(() => {
+      if (energy.classList.contains('brochure-frame')) {
+        restoreEnergyTitle();
+        observer.disconnect();
+      }
+    });
+    observer.observe(energy, {childList:true, attributes:true});
+    restoreEnergyTitle();
+  }
+
+  const energyCopy = document.querySelector('.energy-copy');
+  if (energyCopy && !energyCopy.querySelector('.event-ribbon')) {
+    const ribbon = document.createElement('div');
+    ribbon.className = 'event-ribbon';
+    ribbon.textContent = '学校生活の一場面：体育祭 / 修学旅行（沖縄） / 目高祭 / 合唱祭';
+    energyCopy.appendChild(ribbon);
+  }
+
+  const energyScene = document.querySelector('.energy-scene');
+  if (energyScene && !energyScene.querySelector('.activity-gallery')) {
+    const gallery = document.createElement('div');
+    gallery.className = 'activity-gallery';
+    gallery.innerHTML = `
+      <figure class="activity-shot activity-shot-culture">
+        <img src="${images.culture}" alt="目高祭の舞台でパフォーマンスする生徒たち" loading="lazy" decoding="async">
+        <figcaption><b>目高祭</b><span>文化祭の舞台から</span></figcaption>
+      </figure>
+      <figure class="activity-shot activity-shot-club">
+        <img src="${images.club}" alt="円陣を組む女子バスケットボール部の生徒たち" loading="lazy" decoding="async">
+        <figcaption><b>部活動</b><span>仲間と挑む時間</span></figcaption>
+      </figure>
+      <p class="activity-note">写真は学校案内パンフレット2027掲載の学校生活・行事・部活動の一場面です。学校説明会当日の写真ではありません。</p>`;
+    energyScene.appendChild(gallery);
+  }
+
+  const learningWall = document.querySelector('.learning-wall');
+  if (learningWall) {
+    learningWall.classList.add('brochure-enriched');
+    learningWall.innerHTML = `
+      <figure class="learning-photo-card">
+        <img src="${images.learning}" alt="図書室で探究活動に取り組む生徒たち" loading="lazy" decoding="async">
+        <figcaption>学校案内パンフレット2027・探究活動</figcaption>
+      </figure>
+      <div class="school-facts">
+        <div><span>01</span><b>6つの東京都指定事業</b><small>進路指導・理数研究・ICT・英語・NIE・部活動の分野で指定</small></div>
+        <div><span>02</span><b>放課後20時まで利用可能な自習室</b><small>パンフレット掲載の学習環境</small></div>
+        <div><span>03</span><b>卒業生チューター制度</b><small>卒業生が学習や受験をサポートする仕組み</small></div>
+      </div>
+      <div class="outcome-strip">
+        <small>2026年3月卒（第78期生） 合格大学ハイライト / 学校案内パンフレット2027掲載</small>
+        <div class="outcome-numbers">
+          <div><strong>25</strong><span>国公立大学・大学校</span></div>
+          <div><strong>46</strong><span>早慶上理ICU</span></div>
+          <div><strong>170</strong><span>GMARCH</span></div>
+        </div>
+      </div>`;
+  }
+
+  const visit = document.querySelector('.visit-scene');
+  if (visit && !visit.querySelector('.visit-photo-bg')) {
+    visit.classList.add('has-brochure-visit');
+    const img = new Image();
+    img.className = 'visit-photo-bg';
+    img.src = images.closing;
+    img.alt = '';
+    img.setAttribute('aria-hidden','true');
+    visit.prepend(img);
+  }
+
+  const primaryDate = '10月24日（土）';
+  const primarySlot = '午後開催';
+  const passDate = document.querySelector('.pass-date');
+  if (passDate) passDate.textContent = `${primaryDate} · ${primarySlot}`;
+
+  const ticketRows = [...document.querySelectorAll('#information .info-row')];
+  if (ticketRows[0]) ticketRows[0].querySelector('dd').textContent = primaryDate;
+  if (ticketRows.length && !document.querySelector('#information .brochure-session')) {
+    const session = document.createElement('div');
+    session.className = 'info-row brochure-session';
+    session.innerHTML = '<dt>開催区分</dt><dd>午後</dd>';
+    ticketRows[0].after(session);
+  }
+
+  const ticketInfo = document.querySelector('#information .ticket-info');
+  if (ticketInfo && !ticketInfo.querySelector('.school-access-strip')) {
+    const access = document.createElement('div');
+    access.className = 'school-access-strip';
+    access.innerHTML = '<span>ACCESS</span><div><strong>東急東横線 祐天寺駅徒歩5分</strong><small>学校案内パンフレット2027掲載の学校アクセス</small></div>';
+    const cta = ticketInfo.querySelector('.ticket-cta');
+    ticketInfo.insertBefore(access, cta || null);
+  }
+
+  if (ticketInfo && !ticketInfo.querySelector('.brochure-source-note')) {
+    const source = document.createElement('p');
+    source.className = 'brochure-source-note';
+    source.textContent = '開催日は学校案内パンフレット2027掲載情報。受付時刻・対象・申込方法は正式公開後に更新します。';
+    ticketInfo.appendChild(source);
+  }
+
+  const upcoming = [...document.querySelectorAll('.upcoming-item')];
+  const upcomingDates = ['11月21日（土）・午後', '12月19日（土）・午前／午後'];
+  upcoming.forEach((item, i) => {
+    const p = item.querySelector('p');
+    if (p && upcomingDates[i]) p.textContent = upcomingDates[i];
+  });
+
+  const visitText = document.querySelector('.visit-content > p:not(.scene-eyebrow)');
+  if (visitText) visitText.innerHTML = `${primaryDate}・${primarySlot}<br>申込方法・受付開始日は後日公開`;
+
   let manualReduce = false;
   try { manualReduce = localStorage.getItem('meguro-motion-reduced') === '1'; } catch {}
 
@@ -71,7 +269,7 @@
   }, {passive:true});
   addEventListener('resize', updateStageDepth, {passive:true});
 
-  const revealTargets = document.querySelectorAll('.scene-copy, .exhibit, .walk-window, .people-portrait, .learning-wall, .ticket-layout, .upcoming-item, .energy-copy');
+  const revealTargets = document.querySelectorAll('.scene-copy, .exhibit, .walk-window, .people-portrait, .learning-wall, .ticket-layout, .upcoming-item, .energy-copy, .activity-shot, .school-access-strip');
   revealTargets.forEach(el => el.setAttribute('data-reveal',''));
   if ('IntersectionObserver' in window && !reducedQuery?.matches) {
     const io = new IntersectionObserver(entries => {
