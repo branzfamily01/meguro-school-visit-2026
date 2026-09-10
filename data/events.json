@@ -1,0 +1,77 @@
+{
+  "primaryEventId": "meguro-2026-10",
+  "events": [
+    {
+      "id": "meguro-2026-10",
+      "year": 2026,
+      "month": 10,
+      "title": "10月 学校説明会",
+      "date": null,
+      "timezone": "Asia/Tokyo",
+      "receptionTime": null,
+      "startTime": null,
+      "endTime": null,
+      "venue": null,
+      "address": null,
+      "audience": null,
+      "programs": [],
+      "notes": [],
+      "application": {
+        "status": "unknown",
+        "url": null,
+        "opensAt": null,
+        "closesAt": null,
+        "checkedAt": null,
+        "noticeUrl": null
+      }
+    },
+    {
+      "id": "meguro-2026-11",
+      "year": 2026,
+      "month": 11,
+      "title": "11月 学校説明会",
+      "date": null,
+      "timezone": "Asia/Tokyo",
+      "receptionTime": null,
+      "startTime": null,
+      "endTime": null,
+      "venue": null,
+      "address": null,
+      "audience": null,
+      "programs": [],
+      "notes": [],
+      "application": {
+        "status": "unknown",
+        "url": null,
+        "opensAt": null,
+        "closesAt": null,
+        "checkedAt": null,
+        "noticeUrl": null
+      }
+    },
+    {
+      "id": "meguro-2026-12",
+      "year": 2026,
+      "month": 12,
+      "title": "12月 学校説明会",
+      "date": null,
+      "timezone": "Asia/Tokyo",
+      "receptionTime": null,
+      "startTime": null,
+      "endTime": null,
+      "venue": null,
+      "address": null,
+      "audience": null,
+      "programs": [],
+      "notes": [],
+      "application": {
+        "status": "unknown",
+        "url": null,
+        "opensAt": null,
+        "closesAt": null,
+        "checkedAt": null,
+        "noticeUrl": null
+      }
+    }
+  ]
+}
