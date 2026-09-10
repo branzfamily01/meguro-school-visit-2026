@@ -1,0 +1,78 @@
+{
+  "sections": [
+    {
+      "sectionId": "entrance",
+      "heading": "目黒高校を、ひと足先に歩いてみよう。",
+      "body": "生徒が案内する校内。会場に広がる応援の熱気。目黒高校の雰囲気を、学校説明会で。",
+      "approvalStatus": "draft",
+      "enabled": true
+    },
+    {
+      "sectionId": "discover",
+      "heading": "学校説明会で、出会えること。",
+      "body": "見るだけでは分からない目黒高校を、ここで。",
+      "approvalStatus": "draft",
+      "enabled": true,
+      "items": [
+        {"label":"生徒と校内を歩く","text":"在校生の案内を通して、学校で過ごす時間を身近に感じる。","target":"explore"},
+        {"label":"応援パフォーマンスを体感する","text":"生徒たちの活気を、会場の空気ごと感じる。","target":"experience"},
+        {"label":"学校の学びを知る","text":"学校生活や学び、その先について知る。","target":"learning"}
+      ]
+    },
+    {
+      "sectionId": "explore",
+      "heading": "生徒の案内で、校内へ。",
+      "body": "ここで過ごす生徒と歩くと、校内の景色が少し身近に。",
+      "approvalStatus": "draft",
+      "enabled": true
+    },
+    {
+      "sectionId": "students",
+      "heading": "目高をつくる、生徒たち。",
+      "body": "校内を案内する姿にも、仲間と過ごす時間にも。生徒たちの日常から、学校の雰囲気を感じてください。",
+      "approvalStatus": "draft",
+      "enabled": true
+    },
+    {
+      "sectionId": "experience",
+      "heading": "この活気を、会場で。",
+      "body": "部活動による応援パフォーマンスも、学校説明会の見どころです。",
+      "approvalStatus": "draft",
+      "enabled": true
+    },
+    {
+      "sectionId": "learning",
+      "heading": "学びも、その先も。",
+      "body": "学校生活だけでなく、学びや進路についても。気になることを知る機会に。",
+      "approvalStatus": "draft",
+      "enabled": true,
+      "themes": [
+        {"label":"教育・学び","enabled":false},
+        {"label":"学校生活","enabled":false},
+        {"label":"進路","enabled":false},
+        {"label":"入試","enabled":false}
+      ]
+    },
+    {
+      "sectionId": "information",
+      "heading": "10月 学校説明会",
+      "body": "参加に必要な情報は、確認できたものからこの場所にまとめます。",
+      "approvalStatus": "draft",
+      "enabled": true
+    },
+    {
+      "sectionId": "upcoming",
+      "heading": "11月・12月の開催予定",
+      "body": "詳細は後日公開します。",
+      "approvalStatus": "draft",
+      "enabled": true
+    },
+    {
+      "sectionId": "visit",
+      "heading": "次は、目黒高校で会いましょう。",
+      "body": "写真の向こうではなく、実際の学校で。",
+      "approvalStatus": "draft",
+      "enabled": true
+    }
+  ]
+}
