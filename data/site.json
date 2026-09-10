@@ -2,10 +2,13 @@
   "schoolName": "東京都立目黒高等学校",
   "shortName": "目黒高校",
   "nickname": "目高",
-  "officialUrl": null,
-  "contact": null,
+  "officialUrl": "https://www.metro.ed.jp/meguro-h/",
+  "contact": {
+    "address": "〒153-0052 東京都目黒区祐天寺2-7-15",
+    "phone": "03-3792-5541"
+  },
   "accentColor": "#245F56",
-  "updatedAt": "2026-09-10T20:37:00+09:00",
+  "updatedAt": "2026-09-10T23:10:00+09:00",
   "analytics": {
     "enabled": false
   }
