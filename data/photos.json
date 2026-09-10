@@ -1,11 +1,95 @@
 {
   "photos": [
-    {"id":"hero","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"60% 50%","publicationStatus":"missing"},
-    {"id":"explore-main","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"50% 50%","publicationStatus":"missing"},
-    {"id":"explore-sub","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"50% 50%","publicationStatus":"missing"},
-    {"id":"students-main","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"50% 50%","publicationStatus":"missing"},
-    {"id":"experience","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"50% 50%","publicationStatus":"missing"},
-    {"id":"learning","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"50% 50%","publicationStatus":"missing"},
-    {"id":"visit","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"50% 50%","publicationStatus":"missing"}
+    {
+      "id":"hero",
+      "src":"assets/images/hero-walk.webp",
+      "variants":{},
+      "width":520,
+      "height":541,
+      "alt":"校舎へ向かって歩く目黒高校の生徒たち",
+      "caption":"学校案内パンフレット2027より",
+      "focalMobile":"50% 58%",
+      "focalDesktop":"50% 55%",
+      "publicationStatus":"published",
+      "sourcePage":16
+    },
+    {
+      "id":"explore-main",
+      "src":"assets/images/explore-walk.webp",
+      "variants":{},
+      "width":375,
+      "height":260,
+      "alt":"校内を歩く目黒高校の生徒たち",
+      "caption":"学校案内パンフレット2027・高校生の1日より",
+      "focalMobile":"50% 52%",
+      "focalDesktop":"50% 52%",
+      "publicationStatus":"published",
+      "sourcePage":10
+    },
+    {
+      "id":"explore-sub",
+      "src":"assets/images/learning-inquiry.webp",
+      "variants":{},
+      "width":485,
+      "height":155,
+      "alt":"図書室で探究活動に取り組む生徒たち",
+      "caption":"学校案内パンフレット2027・探究活動より",
+      "focalMobile":"50% 50%",
+      "focalDesktop":"50% 50%",
+      "publicationStatus":"published",
+      "sourcePage":11
+    },
+    {
+      "id":"students-main",
+      "src":"assets/images/students-bench.webp",
+      "variants":{},
+      "width":518,
+      "height":352,
+      "alt":"屋外で会話する目黒高校の生徒たち",
+      "caption":"学校案内パンフレット2027・高校生の1日より",
+      "focalMobile":"50% 50%",
+      "focalDesktop":"50% 50%",
+      "publicationStatus":"published",
+      "sourcePage":10
+    },
+    {
+      "id":"experience",
+      "src":"assets/images/energy-sports.webp",
+      "variants":{},
+      "width":585,
+      "height":450,
+      "alt":"体育祭でリレーを走る生徒たち",
+      "caption":"学校案内パンフレット2027・体育祭より。学校説明会当日の写真ではありません。",
+      "focalMobile":"58% 50%",
+      "focalDesktop":"56% 48%",
+      "publicationStatus":"published",
+      "sourcePage":12
+    },
+    {
+      "id":"learning",
+      "src":"assets/images/learning-inquiry.webp",
+      "variants":{},
+      "width":485,
+      "height":155,
+      "alt":"図書室で探究活動に取り組む生徒たち",
+      "caption":"学校案内パンフレット2027・探究活動より",
+      "focalMobile":"50% 50%",
+      "focalDesktop":"50% 50%",
+      "publicationStatus":"published",
+      "sourcePage":11
+    },
+    {
+      "id":"visit",
+      "src":"assets/images/closing-students.webp",
+      "variants":{},
+      "width":800,
+      "height":417,
+      "alt":"校内の木々を背景に会話する目黒高校の生徒たち",
+      "caption":"学校案内パンフレット2027より",
+      "focalMobile":"50% 55%",
+      "focalDesktop":"50% 52%",
+      "publicationStatus":"published",
+      "sourcePage":1
+    }
   ]
 }
