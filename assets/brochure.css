@@ -4,6 +4,7 @@
 .stage-world.has-brochure-photo .student-shadow{display:none}
 .hero-brochure-photo{position:absolute;z-index:2;right:clamp(3%,6vw,9%);bottom:-2%;width:min(44vw,620px);height:88%;object-fit:cover;object-position:center 52%;filter:saturate(.82) contrast(.98) brightness(.88);box-shadow:0 40px 110px rgba(0,0,0,.32);clip-path:polygon(4% 0,100% 0,100% 96%,90% 100%,0 100%,0 6%)}
 .stage-world.has-brochure-photo::after{content:"SCHOOL GUIDE 2027";position:absolute;z-index:4;right:clamp(4%,7vw,10%);top:9%;color:rgba(255,255,255,.72);font-size:.66rem;font-weight:700;letter-spacing:.18em;writing-mode:vertical-rl}
+.hero-photo-credit{position:absolute;z-index:6;right:clamp(8%,12vw,15%);bottom:5%;max-width:46%;padding:7px 10px;border-left:1px solid rgba(255,255,255,.55);color:rgba(255,255,255,.74);font-size:.58rem;line-height:1.5;letter-spacing:.08em;text-transform:uppercase}
 .stage-world.has-brochure-photo .floating-glass{z-index:5}
 .brochure-frame{position:relative!important;overflow:hidden!important;background:#101816!important}
 .brochure-frame img{display:block;width:100%;height:100%;object-fit:cover}
@@ -13,6 +14,17 @@
 .energy-visual.brochure-frame .energy-title{z-index:5;text-shadow:0 2px 24px rgba(0,0,0,.38)}
 .energy-visual.brochure-frame .brochure-caption{left:auto;right:22px;bottom:20px}
 .energy-copy .event-ribbon{margin-top:22px;padding-top:18px;border-top:1px solid rgba(17,24,22,.18);font-size:.76rem;letter-spacing:.08em;color:#65716b}
+
+.activity-gallery{width:min(100%,1480px);margin:0 auto;padding:clamp(42px,6vw,88px) var(--pad) clamp(72px,9vw,132px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);grid-template-rows:auto auto;gap:clamp(18px,3vw,44px);align-items:start;background:#f1eee6}
+.activity-shot{position:relative;margin:0;overflow:hidden;background:#18211e;box-shadow:0 20px 60px rgba(17,24,22,.12)}
+.activity-shot-culture{margin-top:clamp(10px,5vw,64px);transform:rotate(-1deg)}
+.activity-shot-club{transform:rotate(1.1deg)}
+.activity-shot img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(.99)}
+.activity-shot-culture img{aspect-ratio:5/3;object-position:center}.activity-shot-club img{aspect-ratio:8/5;object-position:center 48%}
+.activity-shot figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;gap:18px;align-items:end;padding:18px 20px;background:linear-gradient(180deg,transparent,rgba(5,11,8,.78));color:#fff}
+.activity-shot figcaption b{font-size:clamp(1rem,1.6vw,1.25rem);letter-spacing:.03em}.activity-shot figcaption span{font-size:.68rem;letter-spacing:.08em;color:rgba(255,255,255,.76)}
+.activity-note{grid-column:1/-1;max-width:68em;margin:0;padding-top:4px;color:#68736d;font-size:.7rem;line-height:1.75;letter-spacing:.02em}
+
 .learning-wall.brochure-enriched{display:grid;grid-template-columns:minmax(260px,.82fr) minmax(0,1.18fr);gap:clamp(22px,4vw,56px);align-items:stretch}
 .learning-photo-card{position:relative;min-height:360px;margin:0;overflow:hidden;background:#dde2de}
 .learning-photo-card img{width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.9) contrast(.98)}
@@ -26,10 +38,16 @@
 .outcome-strip>small{display:block;margin-bottom:12px;font-size:.68rem;letter-spacing:.08em;color:#68736d}
 .outcome-numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(17,24,22,.14);border:1px solid rgba(17,24,22,.14)}
 .outcome-numbers div{min-height:102px;padding:16px;background:#f5f2ea}.outcome-numbers strong{display:block;color:#25473a;font-size:clamp(1.8rem,3vw,2.8rem);line-height:1}.outcome-numbers span{display:block;margin-top:9px;color:#4c5953;font-size:.72rem;line-height:1.55}
+
+.school-access-strip{display:grid;grid-template-columns:84px minmax(0,1fr);gap:18px;align-items:start;margin:28px 0 22px;padding:18px 0;border-top:1px solid rgba(255,255,255,.22);border-bottom:1px solid rgba(255,255,255,.13)}
+.school-access-strip>span{padding-top:3px;color:rgba(255,255,255,.52);font-size:.63rem;font-weight:700;letter-spacing:.16em}
+.school-access-strip strong{display:block;color:#fff;font-size:clamp(.95rem,1.4vw,1.12rem);line-height:1.55}.school-access-strip small{display:block;margin-top:5px;color:rgba(255,255,255,.58);font-size:.68rem;line-height:1.6}
 .information-scene .brochure-source-note{margin-top:12px;font-size:.68rem;color:rgba(255,255,255,.58);letter-spacing:.03em}.info-row.brochure-session{border-top-style:dashed}
-.visit-scene.has-brochure-visit{position:relative;overflow:hidden}.visit-photo-bg{position:absolute;z-index:0;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 56%;filter:saturate(.7) brightness(.38) contrast(1.02);transform:scale(1.02)}
+
+.visit-scene.has-brochure-visit{position:relative;overflow:hidden}.visit-photo-bg{position:absolute;z-index:0;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;filter:saturate(.74) brightness(.4) contrast(1.02);transform:scale(1.02)}
 .visit-scene.has-brochure-visit::after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(90deg,rgba(7,13,11,.94) 0%,rgba(7,13,11,.72) 42%,rgba(7,13,11,.38) 74%,rgba(7,13,11,.6) 100%),linear-gradient(180deg,transparent 50%,rgba(7,13,11,.65))}
 .visit-scene.has-brochure-visit .visit-door,.visit-scene.has-brochure-visit .visit-content,.visit-scene.has-brochure-visit .back-top{position:relative;z-index:2}
-@media (max-width:900px){.hero-brochure-photo{right:-2%;bottom:0;width:68%;height:62%;object-position:center 56%;opacity:.88}.stage-world.has-brochure-photo::after{right:4%;top:18%}.learning-wall.brochure-enriched{grid-template-columns:1fr}.learning-photo-card{min-height:260px}.outcome-strip{grid-column:auto}}
-@media (max-width:600px){.hero-brochure-photo{width:76%;height:58%;right:-10%;bottom:0}.brochure-caption{font-size:.62rem;left:10px;bottom:10px}.energy-visual.brochure-frame .brochure-caption{right:10px;bottom:10px}.outcome-numbers{grid-template-columns:1fr}.outcome-numbers div{min-height:82px}}
-@media (prefers-reduced-motion:reduce){.hero-brochure-photo,.visit-photo-bg{transform:none!important}}
+
+@media (max-width:900px){.hero-brochure-photo{right:-2%;bottom:0;width:68%;height:62%;object-position:center 56%;opacity:.88}.stage-world.has-brochure-photo::after{right:4%;top:18%}.hero-photo-credit{right:8%;bottom:3%;max-width:62%}.activity-gallery{grid-template-columns:1fr;gap:22px}.activity-shot-culture,.activity-shot-club{margin-top:0;transform:none}.activity-note{grid-column:auto}.learning-wall.brochure-enriched{grid-template-columns:1fr}.learning-photo-card{min-height:260px}.outcome-strip{grid-column:auto}}
+@media (max-width:600px){.hero-brochure-photo{width:76%;height:58%;right:-10%;bottom:0}.hero-photo-credit{right:3%;max-width:72%;font-size:.52rem}.brochure-caption{font-size:.62rem;left:10px;bottom:10px}.energy-visual.brochure-frame .brochure-caption{right:10px;bottom:10px}.activity-gallery{padding-top:34px;padding-bottom:72px}.activity-shot figcaption{padding:14px 15px}.activity-shot figcaption span{max-width:45%;text-align:right}.school-access-strip{grid-template-columns:1fr;gap:8px}.outcome-numbers{grid-template-columns:1fr}.outcome-numbers div{min-height:82px}}
+@media (prefers-reduced-motion:reduce){.hero-brochure-photo,.visit-photo-bg,.activity-shot{transform:none!important}}
