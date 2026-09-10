@@ -1,35 +1,20 @@
 # PROJECT STATE
 
-最終更新：2026-09-10 JST
+最終更新：2026-09-10 JST（Kaori体験構造への全面改修）
 
 ## 状態
 - MASTER DESIGN SPEC v1.0：新規実装の基準として採択
 - 新規GitHub：`branzfamily01/meguro-school-visit-2026`（Public）
 - 旧 `branzfamily01/meguro-school-info-session`：新実装では使用しない
-- GitHub main：新規実装一式の投入済み
-- GitHub Pages用root：体験設計の再実装版へ更新済み
+- Kaori Portfolioの体験骨格を再解釈した新デザイン：GitHub mainへ反映済み
+- GitHub Pages：自動デプロイ確認中
 - Cloudflareデプロイ：未実施
 
-## 2026-09-10 UI再実装
-ユーザー実機スクリーンショットで、初回UIがMASTER DESIGN SPECの意図から大きく外れていることを確認。情報の正確性を守るためのproduction抑制が、同時にクリエイティブコピーまで消し、一般的な白い情報LPへ退化させていた。
-
-修正済み：
-- Heroコピーを「目黒高校を、ひと足先に歩いてみよう。」へ復元
-- Heroの大きな情報重複と無意味な空白を削減
-- 写真未投入でも奥行きを確認できる抽象的な校内入口表現をCSSで実装
-- HeroにGlass開催案内を配置
-- DISCOVERを3つの体験導線として表示
-- MEETを生徒主役の暗色セクションとして再構成
-- EXPERIENCEを全幅写真前提の強い場面へ変更
-- LEARNは静かな情報面を維持
-- INFORMATIONは日時・条件・申込状態の正本表示に専念
-- VISITで再び来校へ感情を接続
-- `data/content.json` のクリエイティブコピーをapprovedへ変更
-- root `index.html` / `assets/style.css` / `dist/` を更新
-- `scripts/build.mjs` を更新し、次回buildで旧UIに戻らないよう修正
-- production buildではGitHub Pages用rootを上書きしないよう変更
-
-## 実装済み基盤
+## 実装済み
+- 劇場の幕が開くHeroと奥行きのある校内ポータル
+- Gallery型の場面番号 01〜09 と通常縦スクロール回遊
+- CSSによる抽象的な人物・校内空間（実写未提供時のプレビュー、実在校舎を偽装しない）
+- 全画面パフォーマンス場面と最終VISIT扉演出
 - 1ページ9セクション
 - data/events.json / content.json / photos.json / site.json
 - 8状態のApplicationLink解決
@@ -39,31 +24,28 @@
 - preview / productionビルド分離
 - HTML escape
 - スマホ優先responsive CSS
-- PC限定の軽い写真パララックス
 - prefers-reduced-motion / 手動動き軽減
 - 固定CTA表示制御
 - Cloudflare Static Assets設定
 - Node自動テスト9本
 
-## 既確認
-- `npm test`: 9/9 pass（UI再実装前のロジックテスト。ロジック自体は未変更）
-- 全9 section ID生成
+## 確認済み
+- `npm test`: 9/9 pass
+- preview build: pass
+- production build: pass
+- 全9 section ID生成: pass
 - h1数: 1
-- 日本時間の日付が前日にずれないテスト
-- GitHub mainに必要ファイル・フォルダが存在
-- `wrangler.jsonc` の assets.directory = `./dist`
+- 日本時間の日付が前日にずれないテスト: pass
+- 新デザインのroot index / CSS / JS / template / build / contentをGitHub mainへ反映: pass
 
-## 再確認が必要
-- UI再実装後の375 / 390 / 430px実機視覚確認
-- 320 / 768 / 1024 / 1440 / 1920px
-- iPhone safe area
+## 未確認
+- GitHub Pages最新デプロイ後の実URL表示
+- 320 / 375 / 390 / 430 / 768 / 1024 / 1440 / 1920 の実ブラウザ視覚確認
+- iPhone safe area実機
 - 200%拡大
-- 正式写真投入後のトリミング
+- 実写真のトリミング
 - 公式申込URLの実経路
 - Cloudflare本番URL
-
-## 写真について
-現在の幾何学・奥行き表現は学校の偽写真ではなく、写真未投入時の制作プレビュー。最終品質の最大依存要素は実写であり、Hero、生徒案内、生徒、応援パフォーマンス、終盤の写真を順次差し替える。
 
 ## 学校側TODO
 - C01 10月正式開催日・受付・開始・終了
