@@ -80,16 +80,16 @@
     },
     {
       "id":"visit",
-      "src":"assets/images/closing-students.webp",
+      "src":"assets/images/students-bench.webp",
       "variants":{},
-      "width":800,
-      "height":417,
-      "alt":"校内の木々を背景に会話する目黒高校の生徒たち",
-      "caption":"学校案内パンフレット2027より",
-      "focalMobile":"50% 55%",
-      "focalDesktop":"50% 52%",
+      "width":518,
+      "height":352,
+      "alt":"屋外で会話する目黒高校の生徒たち",
+      "caption":"学校案内パンフレット2027・高校生の1日より",
+      "focalMobile":"50% 50%",
+      "focalDesktop":"50% 50%",
       "publicationStatus":"published",
-      "sourcePage":1
+      "sourcePage":10
     }
   ]
 }
