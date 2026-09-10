@@ -24,6 +24,7 @@
   });
 
   requestAnimationFrame(() => requestAnimationFrame(() => body.classList.add('is-ready')));
+  document.querySelectorAll('.placeholder-tag').forEach(el => { el.hidden = true; });
 
   const entrance = document.querySelector('.entrance');
   const stageWorld = document.querySelector('.stage-world');
