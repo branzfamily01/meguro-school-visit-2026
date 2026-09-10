@@ -14,9 +14,21 @@
       "approvalStatus": "approved",
       "enabled": true,
       "items": [
-        {"label":"生徒と校内を歩く","text":"在校生の案内を通して、学校で過ごす時間を身近に感じる。","target":"explore"},
-        {"label":"応援パフォーマンスを体感する","text":"生徒たちの活気を、会場の空気ごと感じる。","target":"experience"},
-        {"label":"学校の学びを知る","text":"学校生活や学び、その先について知る。","target":"learning"}
+        {
+          "label": "生徒と校内を歩く",
+          "text": "在校生の案内を通して、学校で過ごす時間を身近に感じる。",
+          "target": "explore"
+        },
+        {
+          "label": "応援パフォーマンスを体感する",
+          "text": "生徒たちの活気を、会場の空気ごと感じる。",
+          "target": "experience"
+        },
+        {
+          "label": "学校の学びを知る",
+          "text": "学校生活や学び、その先について知る。",
+          "target": "learning"
+        }
       ]
     },
     {
@@ -47,10 +59,22 @@
       "approvalStatus": "approved",
       "enabled": true,
       "themes": [
-        {"label":"教育・学び","enabled":false},
-        {"label":"学校生活","enabled":false},
-        {"label":"進路","enabled":false},
-        {"label":"入試","enabled":false}
+        {
+          "label": "教育・学び",
+          "enabled": false
+        },
+        {
+          "label": "学校生活",
+          "enabled": false
+        },
+        {
+          "label": "進路",
+          "enabled": false
+        },
+        {
+          "label": "入試",
+          "enabled": false
+        }
       ]
     },
     {
@@ -70,7 +94,7 @@
     {
       "sectionId": "visit",
       "heading": "次は、目黒高校で会いましょう。",
-      "body": "ここで見つけた雰囲気の続きは、実際の目黒高校で。",
+      "body": "写真の向こうではなく、実際の学校で。",
       "approvalStatus": "approved",
       "enabled": true
     }

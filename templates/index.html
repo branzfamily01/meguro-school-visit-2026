@@ -9,13 +9,13 @@
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/app.js" defer></script>
 </head>
-<body data-build-mode="preview">
+<body data-build-mode="{{BUILD_MODE}}">
 <a class="skip-link" href="#main">本文へ移動</a>
 
 <header class="site-header" id="top">
   <a class="brand" href="#top" aria-label="東京都立目黒高等学校 学校説明会 2026 トップへ">
     <span class="brand-mark">M</span>
-    <span class="brand-copy"><strong>東京都立目黒高等学校</strong><small>OPEN SCHOOL 2026</small></span>
+    <span class="brand-copy"><strong>{{SCHOOL_NAME}}</strong><small>OPEN SCHOOL 2026</small></span>
   </a>
   <nav aria-label="主要メニュー">
     <a href="#discover">体験する</a>
@@ -59,9 +59,10 @@
     <aside class="event-pass" aria-label="10月学校説明会 開催概要">
       <span class="pass-no">01 / ENTRANCE</span>
       <span class="pass-title">OCTOBER<br>OPEN SCHOOL</span>
-      <span class="pass-date">2026年10月 ・ 日程の詳細は後日公開</span>
-      <span class="pass-status">申込方法・受付開始日は後日公開</span>
-      <a href="#information" class="pass-cta" data-application-link data-placement="hero">開催情報を見る <span aria-hidden="true">↗</span></a>
+      <span class="pass-date">{{DATE_DETAIL}}</span>
+      <span class="pass-status">{{STATUS_LABEL}}</span>
+      <a href="{{CTA_HREF}}" class="pass-cta" data-application-link data-placement="hero">{{CTA_LABEL}} <span aria-hidden="true">↗</span></a>
+      {{EXTERNAL_NOTE}}
     </aside>
 
     <a class="scroll-cue" href="#discover"><span>SCROLL TO EXPLORE</span><i></i><b>↓</b></a>
@@ -154,8 +155,9 @@
         <p class="scene-eyebrow">INFORMATION</p>
         <h2 id="information-title">10月 学校説明会</h2>
         <p class="ticket-intro">参加に必要な情報は、ここで迷わず確認できます。</p>
-        <dl><div class="info-row"><dt>開催日</dt><dd>詳細は後日公開</dd></div><div class="info-row"><dt>受付時間</dt><dd>詳細は後日公開</dd></div><div class="info-row"><dt>開始・終了予定</dt><dd>詳細は後日公開</dd></div><div class="info-row"><dt>場所</dt><dd>詳細は後日公開</dd></div><div class="info-row"><dt>対象</dt><dd>詳細は後日公開</dd></div><div class="info-row"><dt>申込状況</dt><dd>申込方法・受付開始日は後日公開</dd></div><div class="info-row"><dt>情報更新</dt><dd>2026/09/10 20:37</dd></div></dl>
-        <a class="ticket-cta" href="#information" data-application-link data-placement="information"><span>開催情報を見る</span><b aria-hidden="true">↗</b></a>
+        <dl>{{INFO_ROWS}}</dl>
+        <a class="ticket-cta" href="{{CTA_HREF}}" data-application-link data-placement="information"><span>{{CTA_LABEL}}</span><b aria-hidden="true">↗</b></a>
+        {{EXTERNAL_NOTE}}
       </div>
     </div>
   </section>
@@ -166,17 +168,7 @@
       <p class="scene-eyebrow">UPCOMING EVENTS</p>
       <h2 id="upcoming-title">11月・12月の<br>開催予定。</h2>
     </div>
-    <div class="upcoming-lines">
-  <article class="upcoming-item">
-    <strong>11</strong>
-    <div><h3>11月 学校説明会</h3><p>詳細は後日公開</p></div>
-    <span>2026 / 11</span>
-  </article>
-  <article class="upcoming-item">
-    <strong>12</strong>
-    <div><h3>12月 学校説明会</h3><p>詳細は後日公開</p></div>
-    <span>2026 / 12</span>
-  </article></div>
+    <div class="upcoming-lines">{{UPCOMING}}</div>
   </section>
 
   <section class="visit-scene" id="visit" aria-labelledby="visit-title">
@@ -184,21 +176,22 @@
     <div class="visit-content">
       <p class="scene-eyebrow">09 / VISIT</p>
       <h2 id="visit-title">次は、<br>目黒高校で<br>会いましょう。</h2>
-      <p>2026年10月 ・ 日程の詳細は後日公開<br>申込方法・受付開始日は後日公開</p>
-      <a class="visit-cta" href="#information" data-application-link data-placement="visit"><span>開催情報を見る</span><b aria-hidden="true">↗</b></a>
+      <p>{{DATE_DETAIL}}<br>{{STATUS_LABEL}}</p>
+      <a class="visit-cta" href="{{CTA_HREF}}" data-application-link data-placement="visit"><span>{{CTA_LABEL}}</span><b aria-hidden="true">↗</b></a>
+      {{EXTERNAL_NOTE}}
     </div>
     <a class="back-top" href="#top">入口に戻る ↑</a>
   </section>
 </main>
 
 <div class="sticky-application" data-sticky-application hidden>
-  <a href="#information" data-application-link data-placement="sticky">開催情報を見る <span aria-hidden="true">↗</span></a>
+  <a href="{{CTA_HREF}}" data-application-link data-placement="sticky">{{CTA_LABEL}} <span aria-hidden="true">↗</span></a>
 </div>
 
 <footer class="site-footer">
-  <div><strong>東京都立目黒高等学校</strong><small>OPEN SCHOOL 2026</small></div>
+  <div><strong>{{SCHOOL_NAME}}</strong><small>OPEN SCHOOL 2026</small></div>
   <button type="button" data-motion-toggle aria-pressed="false">動きを減らす</button>
-  <span>更新：2026-09-10</span>
+  <span>更新：{{UPDATED_DATE}}</span>
 </footer>
 </body>
 </html>
