@@ -1,0 +1,47 @@
+name: Extract brochure assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/extract-brochure-assets.yml"
+      - "scripts/extract_brochure_assets.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install extraction dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          python -m pip install --upgrade pip
+          python -m pip install pillow
+
+      - name: Extract selected brochure photography
+        run: python scripts/extract_brochure_assets.py
+
+      - name: Commit generated photography
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/images/*.webp
+          if git diff --cached --quiet; then
+            echo "No generated image changes"
+          else
+            git commit -m "Generate selected School Guide 2027 photography"
+            git push
+          fi
