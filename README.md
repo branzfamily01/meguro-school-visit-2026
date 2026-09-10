@@ -6,20 +6,24 @@
 
 ## 現在の状態
 
-- 制作プレビュー：生成可能
+- GitHub: `branzfamily01/meguro-school-visit-2026`
+- mainへの新規実装一式アップロード：完了
+- `npm test`: 9/9 PASS
+- production build：PASS
 - 10月の正確な日付・受付時間・会場・対象・申込URL：未入力
 - 11月・12月：月のみ表示、詳細は後日公開
-- 写真：未登録。プレビューのみ「写真準備中」領域を表示
-- 本番ビルド：未承認の仮コピーを自動で抑制
-- 公開：未実施
+- 写真：未登録
+- Cloudflare公開：未実施
 
 ## ファイル構成
 
 ```text
-index.html                 # 最新プレビュー。解凍後すぐ閲覧可能
+index.html                 # 生成済みproductionページ
 assets/
   style.css                # Visual System / responsive / glass / motion
   app.js                   # 固定CTA、動き軽減、少量のスクロール演出
+  images/                  # 公開可能な実写真
+
 data/
   events.json              # 日程・状態・申込URLの正本
   content.json             # セクション原稿と承認状態
@@ -28,7 +32,7 @@ data/
 scripts/
   build.mjs                # 静的HTML生成
   lib.mjs                  # 検証・状態解決・escape
- tests/
+tests/
   validation.test.mjs      # 状態・URL・期限境界テスト
 dist/                      # Cloudflare配信用生成物
 docs/
@@ -38,6 +42,7 @@ docs/
   PROJECT_STATE.md
   UPDATE_GUIDE.md
   TEST_REPORT.md
+  CLOUDFLARE_DEPLOY.md
 AGENTS.md
 wrangler.jsonc
 package.json
@@ -52,22 +57,31 @@ npm test
 npm run build:preview
 ```
 
-`index.html` または `dist/index.html` を開きます。
-
 ## 本番用ビルド
 
 ```bash
 npm run build:production
 ```
 
-本番モードでは `approvalStatus: "approved"` 以外の提案コピーを出力しません。未確認事項は「詳細は後日公開」など安全な表示になります。
+本番モードでは `approvalStatus: "approved"` 以外の提案コピーを抑制し、未確認情報は安全な表示へフォールバックします。
 
 ## Cloudflare Workers Static Assets
 
-`wrangler.jsonc` は `dist` を配信対象にしています。2026-09-10時点のCloudflare公式仕様に合わせ、Workers SitesではなくStatic Assetsを利用する構成です。
+`wrangler.jsonc` は `dist` を配信対象にしています。
 
-公開操作はまだ行っていません。
+Workers BuildsでGitHub `main` を接続する場合：
 
-## GitHubへ入れるもの
+```text
+Build command: npm run build:production
+Deploy command: npx wrangler deploy
+Production branch: main
+```
 
-このフォルダの**中身すべて**を新規リポジトリ `meguro-school-visit-2026` のルートへ置きます。ZIPファイルそのものをGitHubへ置く必要はありません。
+詳細は `docs/CLOUDFLARE_DEPLOY.md` を参照してください。
+
+## 重要
+
+- 旧 `meguro-school-info-session` のコードは使わない。
+- 日程、対象、会場、申込URL、実施内容を推測しない。
+- 写真は公開可能な目黒高校の実写のみ使用する。
+- ZIPそのものをGitHubへアップロードする必要はない。
