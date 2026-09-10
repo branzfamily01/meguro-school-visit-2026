@@ -7,7 +7,7 @@
 - 新規GitHub：`branzfamily01/meguro-school-visit-2026`（Public）
 - 旧 `branzfamily01/meguro-school-info-session`：新実装では使用しない
 - ローカル実装：作成済み
-- GitHub main：新規実装を投入中
+- GitHub main：新規実装一式の投入・構成照合済み
 - Cloudflareデプロイ：未実施
 
 ## 実装済み
@@ -26,6 +26,8 @@
 - 固定CTA表示制御
 - Cloudflare Static Assets設定
 - Node自動テスト9本
+- `dist/` 公開用生成物
+- README / AGENTS / REQUIREMENTS / DECISIONS / UPDATE_GUIDE / TEST_REPORT
 
 ## 確認済み
 - `npm test`: 9/9 pass
@@ -34,6 +36,9 @@
 - 全9 section ID生成: pass
 - h1数: 1
 - 日本時間の日付が前日にずれないテスト: pass
+- GitHub mainに必要ファイル・フォルダが存在: pass
+- root `index.html` と `dist/index.html` を配置: pass
+- `wrangler.jsonc` の assets.directory = `./dist`: pass
 
 ## 未確認
 - 320 / 375 / 390 / 430 / 768 / 1024 / 1440 / 1920 の実ブラウザ視覚確認
@@ -42,6 +47,9 @@
 - 実写真のトリミング
 - 公式申込URLの実経路
 - Cloudflare本番URL
+
+## 次工程
+Cloudflare Dashboardで `branzfamily01/meguro-school-visit-2026` の `main` を接続し、production build後の `dist/` をWorkers Static Assetsとして公開する。公開後、実URLで表示とレスポンシブを確認する。
 
 ## 学校側TODO
 - C01 10月正式開催日・受付・開始・終了
