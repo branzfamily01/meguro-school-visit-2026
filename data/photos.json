@@ -1,0 +1,11 @@
+{
+  "photos": [
+    {"id":"hero","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"60% 50%","publicationStatus":"missing"},
+    {"id":"explore-main","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"50% 50%","publicationStatus":"missing"},
+    {"id":"explore-sub","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"50% 50%","publicationStatus":"missing"},
+    {"id":"students-main","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"50% 50%","publicationStatus":"missing"},
+    {"id":"experience","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"50% 50%","publicationStatus":"missing"},
+    {"id":"learning","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"50% 50%","publicationStatus":"missing"},
+    {"id":"visit","src":null,"variants":{},"width":null,"height":null,"alt":null,"caption":null,"focalMobile":"50% 50%","focalDesktop":"50% 50%","publicationStatus":"missing"}
+  ]
+}
