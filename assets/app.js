@@ -18,39 +18,49 @@
     explore: `${imageBase}explore-walk.webp`,
     students: `${imageBase}students-bench.webp`,
     learning: `${imageBase}learning-inquiry.webp`,
-    energy: `${imageBase}energy-sports.webp`
+    energy: `${imageBase}energy-sports.webp`,
+    culture: `${imageBase}culture-dance.webp`,
+    club: `${imageBase}club-huddle.webp`,
+    closing: `${imageBase}closing-students.webp`
   };
 
   const addHeroPhoto = () => {
     const stage = document.querySelector('.stage-world');
     if (!stage || stage.querySelector('.hero-brochure-photo')) return;
-    stage.classList.add('has-brochure-photo');
     const img = new Image();
     img.className = 'hero-brochure-photo';
     img.src = images.hero;
     img.alt = '';
     img.setAttribute('aria-hidden','true');
-    stage.prepend(img);
+    img.addEventListener('load', () => {
+      stage.classList.add('has-brochure-photo');
+      stage.prepend(img);
+      const credit = document.createElement('span');
+      credit.className = 'hero-photo-credit';
+      credit.textContent = 'SCHOOL GUIDE 2027 · 校舎へ向かう生徒たち';
+      stage.appendChild(credit);
+    }, {once:true});
   };
 
   const replacePhotoSlot = (selector, src, alt, caption) => {
     const slot = document.querySelector(selector);
     if (!slot) return null;
-    slot.classList.remove('visual-placeholder');
-    slot.classList.add('brochure-frame');
-    slot.replaceChildren();
     const img = new Image();
     img.src = src;
     img.alt = alt;
     img.loading = 'lazy';
     img.decoding = 'async';
-    slot.appendChild(img);
-    if (caption) {
-      const cap = document.createElement('span');
-      cap.className = 'brochure-caption';
-      cap.textContent = caption;
-      slot.appendChild(cap);
-    }
+    img.addEventListener('load', () => {
+      slot.classList.remove('visual-placeholder');
+      slot.classList.add('brochure-frame');
+      slot.replaceChildren(img);
+      if (caption) {
+        const cap = document.createElement('span');
+        cap.className = 'brochure-caption';
+        cap.textContent = caption;
+        slot.appendChild(cap);
+      }
+    }, {once:true});
     return slot;
   };
 
@@ -77,18 +87,46 @@
     'パンフレット掲載の体育祭の一場面。学校説明会当日の写真ではありません。'
   );
   if (energy) {
-    const title = document.createElement('div');
-    title.className = 'energy-title';
-    title.innerHTML = '<small>05 / EXPERIENCE</small><h2 id="experience-title">この活気を、<br>会場で。</h2>';
-    energy.appendChild(title);
+    const restoreEnergyTitle = () => {
+      if (energy.querySelector('.energy-title')) return;
+      const title = document.createElement('div');
+      title.className = 'energy-title';
+      title.innerHTML = '<small>05 / EXPERIENCE</small><h2 id="experience-title">この活気を、<br>会場で。</h2>';
+      energy.appendChild(title);
+    };
+    const observer = new MutationObserver(() => {
+      if (energy.classList.contains('brochure-frame')) {
+        restoreEnergyTitle();
+        observer.disconnect();
+      }
+    });
+    observer.observe(energy, {childList:true, attributes:true});
+    restoreEnergyTitle();
   }
 
   const energyCopy = document.querySelector('.energy-copy');
   if (energyCopy && !energyCopy.querySelector('.event-ribbon')) {
     const ribbon = document.createElement('div');
     ribbon.className = 'event-ribbon';
-    ribbon.textContent = 'パンフレット掲載の学校行事：体育祭 / 修学旅行（沖縄） / 目高祭 / 合唱祭';
+    ribbon.textContent = '学校生活の一場面：体育祭 / 修学旅行（沖縄） / 目高祭 / 合唱祭';
     energyCopy.appendChild(ribbon);
+  }
+
+  const energyScene = document.querySelector('.energy-scene');
+  if (energyScene && !energyScene.querySelector('.activity-gallery')) {
+    const gallery = document.createElement('div');
+    gallery.className = 'activity-gallery';
+    gallery.innerHTML = `
+      <figure class="activity-shot activity-shot-culture">
+        <img src="${images.culture}" alt="目高祭の舞台でパフォーマンスする生徒たち" loading="lazy" decoding="async">
+        <figcaption><b>目高祭</b><span>文化祭の舞台から</span></figcaption>
+      </figure>
+      <figure class="activity-shot activity-shot-club">
+        <img src="${images.club}" alt="円陣を組む女子バスケットボール部の生徒たち" loading="lazy" decoding="async">
+        <figcaption><b>部活動</b><span>仲間と挑む時間</span></figcaption>
+      </figure>
+      <p class="activity-note">写真は学校案内パンフレット2027掲載の学校生活・行事・部活動の一場面です。学校説明会当日の写真ではありません。</p>`;
+    energyScene.appendChild(gallery);
   }
 
   const learningWall = document.querySelector('.learning-wall');
@@ -119,7 +157,7 @@
     visit.classList.add('has-brochure-visit');
     const img = new Image();
     img.className = 'visit-photo-bg';
-    img.src = images.students;
+    img.src = images.closing;
     img.alt = '';
     img.setAttribute('aria-hidden','true');
     visit.prepend(img);
@@ -140,10 +178,18 @@
   }
 
   const ticketInfo = document.querySelector('#information .ticket-info');
+  if (ticketInfo && !ticketInfo.querySelector('.school-access-strip')) {
+    const access = document.createElement('div');
+    access.className = 'school-access-strip';
+    access.innerHTML = '<span>ACCESS</span><div><strong>東急東横線 祐天寺駅徒歩5分</strong><small>学校案内パンフレット2027掲載の学校アクセス</small></div>';
+    const cta = ticketInfo.querySelector('.ticket-cta');
+    ticketInfo.insertBefore(access, cta || null);
+  }
+
   if (ticketInfo && !ticketInfo.querySelector('.brochure-source-note')) {
     const source = document.createElement('p');
     source.className = 'brochure-source-note';
-    source.textContent = '開催日は学校案内パンフレット2027掲載情報。受付時刻・申込方法は公開後に更新します。';
+    source.textContent = '開催日は学校案内パンフレット2027掲載情報。受付時刻・対象・申込方法は正式公開後に更新します。';
     ticketInfo.appendChild(source);
   }
 
@@ -223,7 +269,7 @@
   }, {passive:true});
   addEventListener('resize', updateStageDepth, {passive:true});
 
-  const revealTargets = document.querySelectorAll('.scene-copy, .exhibit, .walk-window, .people-portrait, .learning-wall, .ticket-layout, .upcoming-item, .energy-copy');
+  const revealTargets = document.querySelectorAll('.scene-copy, .exhibit, .walk-window, .people-portrait, .learning-wall, .ticket-layout, .upcoming-item, .energy-copy, .activity-shot, .school-access-strip');
   revealTargets.forEach(el => el.setAttribute('data-reveal',''));
   if ('IntersectionObserver' in window && !reducedQuery?.matches) {
     const io = new IntersectionObserver(entries => {
