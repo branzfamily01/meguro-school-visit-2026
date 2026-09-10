@@ -2,6 +2,7 @@
   const body = document.body;
   const reducedQuery = window.matchMedia?.('(prefers-reduced-motion: reduce)');
 
+  // The brochure layer is decorative/photographic. Core information remains readable without it.
   const brochureCss = document.createElement('link');
   brochureCss.rel = 'stylesheet';
   brochureCss.href = 'assets/brochure.css';
@@ -31,7 +32,7 @@
     img.className = 'hero-brochure-photo';
     img.src = images.hero;
     img.alt = '';
-    img.setAttribute('aria-hidden','true');
+    img.setAttribute('aria-hidden', 'true');
     img.addEventListener('load', () => {
       stage.classList.add('has-brochure-photo');
       stage.prepend(img);
@@ -39,7 +40,7 @@
       credit.className = 'hero-photo-credit';
       credit.textContent = 'SCHOOL GUIDE 2027 · 校舎へ向かう生徒たち';
       stage.appendChild(credit);
-    }, {once:true});
+    }, { once: true });
   };
 
   const replacePhotoSlot = (selector, src, alt, caption) => {
@@ -60,7 +61,7 @@
         cap.textContent = caption;
         slot.appendChild(cap);
       }
-    }, {once:true});
+    }, { once: true });
     return slot;
   };
 
@@ -100,7 +101,7 @@
         observer.disconnect();
       }
     });
-    observer.observe(energy, {childList:true, attributes:true});
+    observer.observe(energy, { childList: true, attributes: true });
     restoreEnergyTitle();
   }
 
@@ -159,24 +160,12 @@
     img.className = 'visit-photo-bg';
     img.src = images.closing;
     img.alt = '';
-    img.setAttribute('aria-hidden','true');
+    img.setAttribute('aria-hidden', 'true');
     visit.prepend(img);
   }
 
-  const primaryDate = '10月24日（土）';
-  const primarySlot = '午後開催';
-  const passDate = document.querySelector('.pass-date');
-  if (passDate) passDate.textContent = `${primaryDate} · ${primarySlot}`;
-
-  const ticketRows = [...document.querySelectorAll('#information .info-row')];
-  if (ticketRows[0]) ticketRows[0].querySelector('dd').textContent = primaryDate;
-  if (ticketRows.length && !document.querySelector('#information .brochure-session')) {
-    const session = document.createElement('div');
-    session.className = 'info-row brochure-session';
-    session.innerHTML = '<dt>開催区分</dt><dd>午後</dd>';
-    ticketRows[0].after(session);
-  }
-
+  // Event dates/session labels are intentionally NOT rewritten here.
+  // They are generated from data/events.json so that dates have one source of truth.
   const ticketInfo = document.querySelector('#information .ticket-info');
   if (ticketInfo && !ticketInfo.querySelector('.school-access-strip')) {
     const access = document.createElement('div');
@@ -192,16 +181,6 @@
     source.textContent = '開催日は学校案内パンフレット2027掲載情報。受付時刻・対象・申込方法は正式公開後に更新します。';
     ticketInfo.appendChild(source);
   }
-
-  const upcoming = [...document.querySelectorAll('.upcoming-item')];
-  const upcomingDates = ['11月21日（土）・午後', '12月19日（土）・午前／午後'];
-  upcoming.forEach((item, i) => {
-    const p = item.querySelector('p');
-    if (p && upcomingDates[i]) p.textContent = upcomingDates[i];
-  });
-
-  const visitText = document.querySelector('.visit-content > p:not(.scene-eyebrow)');
-  if (visitText) visitText.innerHTML = `${primaryDate}・${primarySlot}<br>申込方法・受付開始日は後日公開`;
 
   let manualReduce = false;
   try { manualReduce = localStorage.getItem('meguro-motion-reduced') === '1'; } catch {}
@@ -234,23 +213,23 @@
   const playEntrance = () => {
     if (body.classList.contains('motion-reduced') || reducedQuery?.matches) return;
     corridor?.animate([
-      { transform:'scale(1.08)', filter:'blur(1px)' },
-      { transform:'scale(1)', filter:'blur(0)' }
-    ], {duration:1800, delay:120, easing:'cubic-bezier(.2,.8,.2,1)', fill:'both'});
+      { transform: 'scale(1.08)', filter: 'blur(1px)' },
+      { transform: 'scale(1)', filter: 'blur(0)' }
+    ], { duration: 1800, delay: 120, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both' });
     const studentScale = innerWidth < 901 ? .7 : 1;
     studentShadow?.animate([
-      { transform:`translate3d(90px,10px,0) scale(${(studentScale * .9).toFixed(2)})`, opacity:0 },
-      { offset:.55, opacity:.45 },
-      { transform:`translate3d(0,0,0) scale(${studentScale})`, opacity:.76 }
-    ], {duration:1900, delay:650, easing:'cubic-bezier(.22,.75,.22,1)', fill:'both'});
+      { transform: `translate3d(90px,10px,0) scale(${(studentScale * .9).toFixed(2)})`, opacity: 0 },
+      { offset: .55, opacity: .45 },
+      { transform: `translate3d(0,0,0) scale(${studentScale})`, opacity: .76 }
+    ], { duration: 1900, delay: 650, easing: 'cubic-bezier(.22,.75,.22,1)', fill: 'both' });
     glassA?.animate([
-      { transform:'translate3d(18px,-8px,0) rotateY(-11deg) rotateZ(3deg)', opacity:.18 },
-      { transform:'translate3d(0,0,0) rotateY(-7deg) rotateZ(2deg)', opacity:1 }
-    ], {duration:1600, delay:450, easing:'ease-out', fill:'both'});
+      { transform: 'translate3d(18px,-8px,0) rotateY(-11deg) rotateZ(3deg)', opacity: .18 },
+      { transform: 'translate3d(0,0,0) rotateY(-7deg) rotateZ(2deg)', opacity: 1 }
+    ], { duration: 1600, delay: 450, easing: 'ease-out', fill: 'both' });
     glassB?.animate([
-      { transform:'translate3d(-16px,14px,0) rotateY(12deg) rotateZ(-3deg)', opacity:.1 },
-      { transform:'translate3d(0,0,0) rotateY(8deg) rotateZ(-2deg)', opacity:1 }
-    ], {duration:1750, delay:520, easing:'ease-out', fill:'both'});
+      { transform: 'translate3d(-16px,14px,0) rotateY(12deg) rotateZ(-3deg)', opacity: .1 },
+      { transform: 'translate3d(0,0,0) rotateY(8deg) rotateZ(-2deg)', opacity: 1 }
+    ], { duration: 1750, delay: 520, easing: 'ease-out', fill: 'both' });
   };
   setTimeout(playEntrance, 80);
 
@@ -265,12 +244,15 @@
     if (glassB) glassB.style.translate = `${Math.round(p * 11)}px ${Math.round(p * -8)}px`;
   };
   addEventListener('scroll', () => {
-    if (!stageTicking) { stageTicking = true; requestAnimationFrame(updateStageDepth); }
-  }, {passive:true});
-  addEventListener('resize', updateStageDepth, {passive:true});
+    if (!stageTicking) {
+      stageTicking = true;
+      requestAnimationFrame(updateStageDepth);
+    }
+  }, { passive: true });
+  addEventListener('resize', updateStageDepth, { passive: true });
 
   const revealTargets = document.querySelectorAll('.scene-copy, .exhibit, .walk-window, .people-portrait, .learning-wall, .ticket-layout, .upcoming-item, .energy-copy, .activity-shot, .school-access-strip');
-  revealTargets.forEach(el => el.setAttribute('data-reveal',''));
+  revealTargets.forEach(el => el.setAttribute('data-reveal', ''));
   if ('IntersectionObserver' in window && !reducedQuery?.matches) {
     const io = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -279,7 +261,7 @@
           io.unobserve(entry.target);
         }
       });
-    }, {threshold:.12, rootMargin:'0px 0px -5% 0px'});
+    }, { threshold: .12, rootMargin: '0px 0px -5% 0px' });
     revealTargets.forEach(el => io.observe(el));
   } else {
     revealTargets.forEach(el => el.classList.add('is-visible'));
@@ -292,11 +274,14 @@
       const smallLandscape = matchMedia('(orientation: landscape) and (max-height: 560px)').matches;
       sticky.hidden = heroVisible || visibleBlockers.size > 0 || smallLandscape;
     };
-    new IntersectionObserver(([entry]) => { heroVisible = entry.isIntersecting; update(); }, {threshold:.08}).observe(heroApplication);
+    new IntersectionObserver(([entry]) => {
+      heroVisible = entry.isIntersecting;
+      update();
+    }, { threshold: .08 }).observe(heroApplication);
     const blockerObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => entry.isIntersecting ? visibleBlockers.add(entry.target) : visibleBlockers.delete(entry.target));
       update();
-    }, {threshold:.15});
+    }, { threshold: .15 });
     blockers.forEach(el => blockerObserver.observe(el));
   }
 })();
