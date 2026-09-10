@@ -38,10 +38,11 @@
       { transform:'scale(1.08)', filter:'blur(1px)' },
       { transform:'scale(1)', filter:'blur(0)' }
     ], {duration:1800, delay:120, easing:'cubic-bezier(.2,.8,.2,1)', fill:'both'});
+    const studentScale = innerWidth < 901 ? .7 : 1;
     studentShadow?.animate([
-      { transform:'translate3d(90px,10px,0) scale(.9)', opacity:0 },
+      { transform:`translate3d(90px,10px,0) scale(${(studentScale * .9).toFixed(2)})`, opacity:0 },
       { offset:.55, opacity:.45 },
-      { transform:'translate3d(0,0,0) scale(1)', opacity:.76 }
+      { transform:`translate3d(0,0,0) scale(${studentScale})`, opacity:.76 }
     ], {duration:1900, delay:650, easing:'cubic-bezier(.22,.75,.22,1)', fill:'both'});
     glassA?.animate([
       { transform:'translate3d(18px,-8px,0) rotateY(-11deg) rotateZ(3deg)', opacity:.18 },
