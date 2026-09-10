@@ -66,6 +66,32 @@
       "sourcePage":12
     },
     {
+      "id":"culture",
+      "src":"assets/images/culture-dance.webp",
+      "variants":{},
+      "width":450,
+      "height":270,
+      "alt":"目高祭の舞台でパフォーマンスする生徒たち",
+      "caption":"学校案内パンフレット2027・目高祭より",
+      "focalMobile":"50% 50%",
+      "focalDesktop":"50% 50%",
+      "publicationStatus":"published",
+      "sourcePage":13
+    },
+    {
+      "id":"club",
+      "src":"assets/images/club-huddle.webp",
+      "variants":{},
+      "width":800,
+      "height":500,
+      "alt":"円陣を組む女子バスケットボール部の生徒たち",
+      "caption":"学校案内パンフレット2027・部活動より",
+      "focalMobile":"52% 50%",
+      "focalDesktop":"50% 48%",
+      "publicationStatus":"published",
+      "sourcePage":14
+    },
+    {
       "id":"learning",
       "src":"assets/images/learning-inquiry.webp",
       "variants":{},
@@ -80,16 +106,16 @@
     },
     {
       "id":"visit",
-      "src":"assets/images/students-bench.webp",
+      "src":"assets/images/closing-students.webp",
       "variants":{},
-      "width":518,
-      "height":352,
-      "alt":"屋外で会話する目黒高校の生徒たち",
-      "caption":"学校案内パンフレット2027・高校生の1日より",
-      "focalMobile":"50% 50%",
-      "focalDesktop":"50% 50%",
+      "width":690,
+      "height":585,
+      "alt":"校舎の外で会話する制服姿の目黒高校の生徒たち",
+      "caption":"学校案内パンフレット2027・表紙より",
+      "focalMobile":"52% 46%",
+      "focalDesktop":"55% 48%",
       "publicationStatus":"published",
-      "sourcePage":10
+      "sourcePage":1
     }
   ]
 }
