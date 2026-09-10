@@ -41,6 +41,21 @@ CROPS = {
         "box": (595, 65, 1180, 515),
         "size": (585, 450),
     },
+    "closing-students.webp": {
+        "page": 1,
+        "box": (260, 300, 1180, 1080),
+        "size": (690, 585),
+    },
+    "club-huddle.webp": {
+        "page": 14,
+        "box": (150, 70, 1190, 720),
+        "size": (800, 500),
+    },
+    "culture-dance.webp": {
+        "page": 13,
+        "box": (450, 430, 900, 700),
+        "size": (450, 270),
+    },
 }
 
 
